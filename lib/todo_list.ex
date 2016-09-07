@@ -8,7 +8,8 @@ defmodule TodoList do
 
     # Define workers and child supervisors to be supervised
     children = [
-      supervisor(TodoList.Server, [])
+      supervisor(TodoList.Server, []),
+      worker(TodoList.Cache, [])
       # Starts a worker by calling: TodoList.Worker.start_link(arg1, arg2, arg3)
       # worker(TodoList.Worker, [arg1, arg2, arg3]),
     ]
